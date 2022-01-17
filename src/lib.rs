@@ -3,7 +3,9 @@
 #![warn(clippy::all, rust_2018_idioms)]
 
 mod app;
-pub use app::TemplateApp;
+mod data;
+
+pub use app::AppOrganizerApp;
 
 // ----------------------------------------------------------------------------
 // When compiling for web:
