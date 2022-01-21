@@ -17,4 +17,4 @@ if os.path.isdir('ico_sizes_temp'):
 os.mkdir('ico_sizes_temp')
 for size in sizes:
     subprocess.run(['inkscape', '-w', str(size), '-o', os.path.join('ico_sizes_temp', f'{size}.png'), sys.argv[1]])
-subprocess.run(['magick', 'convert'] + [os.path.join('ico_sizes_temp', f'{size}.png') for size in sizes] + [os.path.splitext(sys.argv[1])[0] + '.ico'])
+subprocess.run(['magick', 'convert'] + list(reversed([os.path.join('ico_sizes_temp', f'{size}.png') for size in sizes])) + [os.path.splitext(sys.argv[1])[0] + '.ico'])
